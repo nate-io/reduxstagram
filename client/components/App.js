@@ -7,7 +7,7 @@ import Main from './Main'
 // expose redux state as props to consumers
 function mapStateToProps(state) {
   return {
-    props: state.props,
+    posts: state.posts,
     comments: state.comments
   }
 }
