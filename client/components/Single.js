@@ -1,9 +1,19 @@
 import React from 'react'
+import Photo from './Photo'
+import Comments from './Comments'
 
-const Single = () => (
-  <div className='single-photo'>
-    I'm the single
-  </div>
-)
+const Single = (props) => {
+  const { comments, posts, params } = props
+  const i = posts.findIndex((post) => post.code === params.postId)
+  const post = posts[i]
+  const postComments = comments[params.postId]
+
+  return (
+    <div className='single-photo'>
+      <Photo index={i} post={post} {...props} />
+      <Comments postComments={postComments} {...props} />
+    </div>
+  )
+}
 
 export default Single
